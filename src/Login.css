@@ -1,0 +1,22 @@
+.login {
+  /* Equally place things at the center */
+  display: grid;
+  place-items: center;
+  height: 100vh; /* Give the page a height of 100 view heights. Basically take up the entire height of the page as much as you can */
+  background-color: black; /* Set the background colour to black */
+}
+
+/* Go to that login find the image and give it a width of 100% */
+.login > img {
+  width: 100%;
+}
+
+/* Go to that login find the link anchor and give it a padding of 20 pixels, a border radius of 99 pixels to give it a rounded look to it, a background of green e.t.c */
+.login > a {
+  padding: 20px;
+  border-radius: 99px;
+  background-color: #1db954;
+  font-weight: 800;
+  color: white;
+  text-decoration: none; /* Prevent the default underlining from happening. Stop it from having the little underline when we add the link to it */
+}
