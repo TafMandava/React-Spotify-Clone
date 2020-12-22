@@ -11,6 +11,8 @@ function App() {
   */
   useEffect(() => {
      const hash = getTokenFromUrl();
+     // We do not want the access token to sit in the url.  Clear the access token
+     window.location.hash = "";
      const token = hash.access_token;
      console.log("I have token >>>", token);
   }, []);
