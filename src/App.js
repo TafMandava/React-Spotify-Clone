@@ -10,6 +10,11 @@ import { getTokenFromUrl } from './spotify';
 */
 import SpotifyWebApi from 'spotify-web-api-js';
 
+/*
+    Create an instance of spotify that will allow us to communicate with spotify
+*/
+const spotify = new SpotifyWebApi();
+
 function App() {
 
   const [token, setToken] = useState(null);
@@ -32,9 +37,24 @@ function App() {
         Use the token to connect to Spotify and do some cool staff with it
       */
       setToken(_token);
+      /*
+        Connect Spotify to React
+        Giving the access token to the API
+        Here is your token that will allow you to talk inbetween the App and Spotify Services
+      */
+      spotify.setAccessToken(_token);
+
+      /*
+        Get the user's account
+        This returns a promise
+      */
+      spotify.getMe().then(user => {
+        console.log("User >>> ", user);
+      });
+
      }
 
-     console.log("I have token >>>", token);
+     console.log("Token >>> ", token);
   }, []);
 
   return ( 
