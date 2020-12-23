@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Player from './Player';
 import Login from './Login';
 import './App.css';
 import { getTokenFromUrl } from './spotify';
@@ -55,7 +56,7 @@ function App() {
      }
 
      console.log("Token >>> ", token);
-  }, []);
+  }, [token]);
 
   return ( 
     /*
@@ -65,7 +66,7 @@ function App() {
       {/*JSX - If there is a token render the Player else render the Login*/}
       {
         token ? (
-          <h1>I am logged in</h1>
+          <Player />
         ) : (
           <Login />
         )
