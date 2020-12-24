@@ -1,0 +1,3 @@
+/*
+    Responsible for making the App work the way we saw t working
+*/

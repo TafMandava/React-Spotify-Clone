@@ -4,7 +4,7 @@ import './Player.css';
 function Player() {
     return (
         <div>
-            <h1>Player</h1>
+            <h1>Welcome to Spotify</h1>
         </div>
     );
 }

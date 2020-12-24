@@ -1,12 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import  { DataLayer } from './DataLayer';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    {/* 
+      Wrap the App inside the StateProvider or DataLayer. We can call it anything
+      The DataLayer needs two things, an initialState and a Reducer and these are passed in as Props
+    */}
+    <DataLayer initialState  reducer>
+      <App />
+    </DataLayer>
   </React.StrictMode>,
   document.getElementById('root')
 );
