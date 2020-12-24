@@ -10,6 +10,7 @@ import { getTokenFromUrl } from './spotify';
   Someone created a wrapper which makes it easier use the API
 */
 import SpotifyWebApi from 'spotify-web-api-js';
+import { useDataLayerValue } from './DataLayer';
 
 /*
     Create an instance of spotify that will allow us to communicate with spotify
@@ -19,6 +20,9 @@ const spotify = new SpotifyWebApi();
 function App() {
 
   const [token, setToken] = useState(null);
+  /*
+      Grabbing information from the data layer
+  */
 
   /*
       Run code based on a given condition

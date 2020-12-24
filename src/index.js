@@ -4,6 +4,7 @@ import './index.css';
 import  { DataLayer } from './DataLayer';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import reducer, { initialState } from './reducer';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -11,7 +12,7 @@ ReactDOM.render(
       Wrap the App inside the StateProvider or DataLayer. We can call it anything
       The DataLayer needs two things, an initialState and a Reducer and these are passed in as Props
     */}
-    <DataLayer initialState  reducer>
+    <DataLayer initialState={initialState} reducer={reducer}>
       <App />
     </DataLayer>
   </React.StrictMode>,
