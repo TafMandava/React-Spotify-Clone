@@ -3,10 +3,13 @@ import './Player.css';
 
 function Player({ spotify }) {
     return (
-        <div>
-            {/* Sidebar */}            
-            {/* Body */}
-            {/* Footer */}
+        <div className="player">
+            <div className="player__body">
+                {/* Sidebar */}            
+                {/* Body */}
+            </div>
+            
+            {/* Footer */} 
         </div>
     );
 }
