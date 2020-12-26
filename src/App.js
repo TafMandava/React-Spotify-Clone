@@ -61,7 +61,7 @@ function App() {
           Go to the reducer and add a case that listens to SET_TOKEN
       */
       dispatch({
-        type: SET_TOKEN,
+        type: 'SET_TOKEN',
         token: _token
       });
       
