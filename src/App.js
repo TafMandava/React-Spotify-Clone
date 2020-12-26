@@ -62,7 +62,7 @@ function App() {
       */
       dispatch({
         type: SET_TOKEN,
-        token: _token,
+        token: _token
       });
       
 
@@ -80,6 +80,7 @@ function App() {
         Pull the user from the datalayer and read it
       */
       spotify.getMe().then(user => {
+      //console.log("User >>> ", user);
         /*
             An easier State Management API that you can learn is Recoil
             Dispatch and action
@@ -92,16 +93,22 @@ function App() {
         */
         dispatch({
           type: 'SET_USER',
-          user: user,
+          user: user
         });
       });
 
      }
 
-     console.log("Token >>> ", token);
+     //console.log("Token >>> ", token);
 
   }, [token]);
 
+  /*
+      Sanity check
+      Check if we can get the token from the data layer
+      Printing out the token from the data layer
+  */
+  console.log("Token >>> ", token);
 
   /*
       Sanity check
