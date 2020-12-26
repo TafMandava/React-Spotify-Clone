@@ -1,0 +1,22 @@
+.sidebar {
+  height: 100vh;
+  /*
+      Use up 20% of the space available
+  */
+  flex: 0.2;
+  color: white;
+  /*
+      We add padding so that the text does not touch the sides of its allocated area
+  */
+  padding-left: 10px;
+  padding-right: 10px;
+  /*
+      I do not want the width to be squeezed up
+      Creating more space
+  */
+  min-width: 230px;
+  /*
+      Dark black colour
+  */
+  background-color: #040404;
+}

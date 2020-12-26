@@ -1,0 +1,11 @@
+.player {
+}
+
+/*
+    The Sidebar and Body should be next to each other
+    That's why we are using a display of flex
+    Flex goes in a row by default
+*/
+.player__body {
+  display: flex;
+}
