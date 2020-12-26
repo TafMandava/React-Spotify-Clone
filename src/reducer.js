@@ -12,7 +12,7 @@ export const initialState = {
     Reducer takes in two inputs:
         state - how it currently looks
         action - how we manipulate what the data layer looks like e.g. set the user, set what we are playing, set the item that we are currently listening to e.t.c
-    The primary job of the reducer is to listen to actions. it sits idle then listens to actions
+    The primary job of the reducer is to listen to actions. Reducers sit idle listening to actions
 */
 const reducer = (state, action) => {
     console.log(action);
@@ -32,7 +32,7 @@ const reducer = (state, action) => {
             In this case the type of the action is SET_USER and the payload is user from (action.user)
             When we login set the user to this person
             The reducer is listening and saying this is the new state
-            We can have multiple cases but we should always have a default to say that if nothing happens e.g. if we dispatch an action action for example saying JUMP_TAFADZWA and we are not listening to it. What we should do is just return the state by itself so that nothing changes so that it doesn't break the App
+            We can have multiple cases but we should always have a default to say that if nothing happens e.g. if we dispatch an action for example saying JUMP_TAFADZWA and we are not listening to it. What we should do is just return the state by itself so that nothing changes so that it doesn't break the App
         */
         case 'SET_USER':
             return {
@@ -48,6 +48,8 @@ const reducer = (state, action) => {
                 */
                 user: action.user
             }
+        default:
+            return state;
     }
 }
 

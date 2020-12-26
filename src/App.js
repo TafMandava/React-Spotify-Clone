@@ -21,8 +21,21 @@ function App() {
 
   const [token, setToken] = useState(null);
   /*
-      Grabbing information from the data layer
+      Grabbing information from the data layer and insert it into this object
+      If l need the user l would say go get the user using const [{ user }, dispatch]
+      If l need the token l would say go get the user using const [{ token }, dispatch]
+      If l need both the user and token l would say go get the user and token using const [{ user, token }, dispatch]
+      If you do not need anything so we are going to leave it blank const [{}, dispatch]
+      The second argument is called the dispatch which is more like a gun and we get this gun to shoot at the data layer with values to change and update values
+      We need the disptch to do that
+      Get or pull the user from the data layer
+      Destructing to only get the use
+       const [{ user }, dispatch] = useDataLayerValue(); is similar to :
+           const [dataLayer, dispatch] = = useDataLayerValue();
+           dataLayer.user;
+      To test this login with spotify
   */
+ const [{ user }, dispatch] = useDataLayerValue();
 
   /*
       Run code based on a given condition
@@ -42,6 +55,8 @@ function App() {
         Use the token to connect to Spotify and do some cool staff with it
       */
       setToken(_token);
+
+
       /*
         Connect Spotify to React
         Giving the access token to the API
@@ -52,15 +67,39 @@ function App() {
       /*
         Get the user's account
         This returns a promise
+        Pop the user into the data layer
+        Pull the user from the datalayer and read it
       */
       spotify.getMe().then(user => {
-        console.log("User >>> ", user);
+        /*
+            An easier State Management API that you can learn is Recoil
+            Dispatch and action
+            The action is an object
+            Action has a type and payload (In the Reducer we user action.user)
+            This will dipatch the user at this point
+            To test if the user is being stored use const [{ user }, dispatch] = useDataLayerValue(); to pull th user from the data layer
+            Write to the console log before the return statement
+            Shoot into the data layer
+        */
+        dispatch({
+          type: 'SET_USER',
+          user: user,
+        });
       });
 
      }
 
      console.log("Token >>> ", token);
+
   }, [token]);
+
+
+  /*
+      Sanity check
+      Check if we can get the user from the data layer
+      Printing out the user from the data layer
+  */
+  console.log("User >>> ", user);
 
   return ( 
     /*
