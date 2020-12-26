@@ -19,7 +19,7 @@ const spotify = new SpotifyWebApi();
 
 function App() {
 
-  const [token, setToken] = useState(null);
+  //const [token, setToken] = useState(null);
   /*
       Grabbing information from the data layer and insert it into this object
       If l need the user l would say go get the user using const [{ user }, dispatch]
@@ -35,7 +35,7 @@ function App() {
            dataLayer.user;
       To test this login with spotify
   */
- const [{ user }, dispatch] = useDataLayerValue();
+ const [{ user, token }, dispatch] = useDataLayerValue();
 
   /*
       Run code based on a given condition
@@ -54,8 +54,17 @@ function App() {
         Store token inside of memory
         Use the token to connect to Spotify and do some cool staff with it
       */
-      setToken(_token);
+      //setToken(_token);
 
+      /*
+          Rather than setting a token here we are going to create a dispatch 
+          Go to the reducer and add a case that listens to SET_TOKEN
+      */
+      dispatch({
+        type: SET_TOKEN,
+        token: _token,
+      });
+      
 
       /*
         Connect Spotify to React
@@ -79,7 +88,7 @@ function App() {
             This will dipatch the user at this point
             To test if the user is being stored use const [{ user }, dispatch] = useDataLayerValue(); to pull th user from the data layer
             Write to the console log before the return statement
-            Shoot into the data layer
+            Sh  oot into the data layer
         */
         dispatch({
           type: 'SET_USER',
