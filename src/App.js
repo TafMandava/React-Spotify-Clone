@@ -125,7 +125,11 @@ function App() {
       {/*JSX - If there is a token render the Player else render the Login*/}
       {
         token ? (
-          <Player />
+          /*
+              Passing the spotify object to the player as a Prop 
+              This is an example on how we pass the object directly to a component rather than using the data layer or creating a dispatch that shoots the object into the data layer
+          */
+          <Player spotify={spotify} />
         ) : (
           <Login />
         )
