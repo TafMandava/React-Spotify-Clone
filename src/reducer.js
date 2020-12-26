@@ -6,6 +6,9 @@ export const initialState = {
     playlist: [],
     playing: false,
     item: null,
+    /*  If you do not want to constantly login the app
+        Set token to 'BQBdXk-JBahehBsscWDWwsy8kPYfUpxEmGyRbmLecMkUuzoL2DodxZ7pd-wOyeN7bU2PmwieWBmgIEoANF06-jrL5xINOOt6GEMwC_zWdGiLOjQjd6K8oTOttC1JRmgBeYvnSXNFlwWd30Pt3Wcx0IHMAlJfZDqBGH6Koycs6L7SmnHU' when developing app and remove when done
+    */
     token: null
 }
 
