@@ -1,7 +1,7 @@
 import React from 'react';
 import './SidebarOption.css';
 
-function SidebarOption({ title, Icon }) {
+function SidebarOption({spotify, title, Icon }) {
     return (
         <div className="sidebarOption">
             {/*

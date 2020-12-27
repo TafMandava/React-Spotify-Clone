@@ -12,7 +12,8 @@ export const initialState = {
         Set token to 'BQBdXk-JBahehBsscWDWwsy8kPYfUpxEmGyRbmLecMkUuzoL2DodxZ7pd-wOyeN7bU2PmwieWBmgIEoANF06-jrL5xINOOt6GEMwC_zWdGiLOjQjd6K8oTOttC1JRmgBeYvnSXNFlwWd30Pt3Wcx0IHMAlJfZDqBGH6Koycs6L7SmnHU' when developing app and remove when done
         However, this should be removed when the application is production ready
     */
-    token: null
+    token: null,
+    afterglow_search: []
 }
 
 /*
@@ -64,6 +65,11 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 playlists: action.playlists
+            };
+        case 'SET_AFTERGLOW_SEARCH':
+            return {
+                ...state,
+                afterglow_search: action.afterglow_search
             };
         default:
             return state;

@@ -11,13 +11,14 @@ import SidebarOption from './SidebarOption';
 import { useDataLayerValue } from './DataLayer';
 import './Sidebar.css';
 
-function Sidebar() {
-    const [{ playlists }, dispatch] = useDataLayerValue();
+function Sidebar({ spotify }) {
+    const [{ afterglow_search, playlists }, dispatch] = useDataLayerValue();
 
     /*
         Sanity check
     */
     console.log("Playlists >>> ", playlists);
+    console.log("Afterglow Search >>> ", afterglow_search);
 
     return (
         <div className="sidebar">
@@ -39,10 +40,18 @@ function Sidebar() {
                 The object that is returned has a property called items
                 Check if there are items inside of it and map it to 
                 For each single playlist(item) go ahead and return 
+            
+            {playlists?.items?.map((playlist) => {
+                return <SidebarOption title={playlist.name} />
+            })}
             */}
-            {playlists?.items?.map((playlist) => (
-                <SidebarOption title={playlist.name} />
-            ))}
+
+            {/*
+                Search tracks whose name, album or artist contains 'Afterglow' 
+            */}
+            {afterglow_search?.tracks?.items?.map((search_result) => {
+                return <SidebarOption title={search_result.album.name} />
+            })}
         </div>
     );
 }

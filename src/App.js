@@ -46,8 +46,8 @@ function App() {
      /* 
         We do not want the access token to sit in the url.  Clear the access token. Strip the token from the url 
      */
-     window.location.hash = "";
-     const _token = hash.access_token;
+     window.location.hash = '';
+     const _token = hash['access_token'];
 
      if (_token) {
       /* 
@@ -103,14 +103,26 @@ function App() {
           Dispatch the playlists to the data layer
           Do not forget to go and listen to the action in the Requcer
       */
-      spotify.getUserPlaylists().then((playlists) => {
-        dispatch({
+     spotify.getUserPlaylists().then((playlists) => {
+      dispatch({
           type: 'SET_PLAYLISTS',
           playlists: playlists
-        });
       });
+     });
+
+      /* 
+          search tracks whose name, album or artist contains 'Afterglow' 
+      */
+     console.log('Search tracks whose name, album or artist contains Afterglow');
+      spotify.searchTracks('Afterglow').then((afterglow_search) => {
+        dispatch({
+            type: 'SET_AFTERGLOW_SEARCH',
+            afterglow_search: afterglow_search
+        });
+       });
 
      }
+     
 
      //console.log("Token >>> ", token);
 

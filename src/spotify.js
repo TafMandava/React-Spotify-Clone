@@ -18,13 +18,14 @@ const clientId = "19d7c6eee7804c829e8871b7d1ef25f9";
     Spotify Scopes
     Defining function or operation permissions
     %20 equals ASCI space character
+    You can read more about Spotify scopes at https://developer.spotify.com/documentation/general/guides/scopes/
 */
 const scopes = [
-    "user-read-currently-playing",
-    "user-read-recently-played",
-    "user-read-playback-state",
-    "user-top-read",
-    "user-modify-playback-state",
+    'user-read-currently-playing',
+    'user-read-recently-played',
+    'user-read-playback-state',
+    'user-top-read',
+    'user-modify-playback-state'
 ];
 
 /*
@@ -45,7 +46,7 @@ export const getTokenFromUrl = () => {
             // Go into the initial value that's being returned for the access token  decode the URI Component which is basically the key BQDnh6M26A2zWQgYdlak14gnxRoBa23gPdhwVHMMfCoIpMHqCJUiIVrEhewGFlt3cXXPQPRFZa0QFyQeV-QVyDVm8u7NRVVyMmxOf46KflqOUdGhGodIYKi1L_FkAABmtK_YIChy_N-RLQbVkbD1XnevUtGUvYtQzhosfJQFZV3Zf4FD
             initial[parts[0]] = decodeURIComponent(parts[1]);
             return initial;
-        }, {}) // Get an empty object which is basically what the initial should start with
+        }, {}); // Get an empty object which is basically what the initial should start with
 }
 
 export const loginUrl = `${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join("%20")}&response_type=token&show_dialog=true`;
