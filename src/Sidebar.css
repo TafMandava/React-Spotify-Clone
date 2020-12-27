@@ -20,3 +20,16 @@
   */
   background-color: #040404;
 }
+
+.sidebar__logo {
+  /*
+        The logo is slightly pushed to the left so we use the margin-right: auto
+  */
+  margin-right: auto;
+  /*
+        Keep the aspect ratio so that it doesn't get distorted
+  */
+  object-fit: contain;
+  height: 70px;
+  padding: 10px;
+}

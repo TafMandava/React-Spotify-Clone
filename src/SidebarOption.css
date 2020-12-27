@@ -1,0 +1,20 @@
+.sidebarOption {
+  color: grey;
+  height: 40px;
+  /*
+      Make the cursor a pointer finger which is nicer
+  */
+  cursor: pointer;
+  /*
+      Set a delay of 200 milli second on the color transition
+  */
+  transition: 200ms color ease-in;
+}
+
+/*
+    When l hover over it l want the text color to be white
+    But l do not want the transition to be sloppy. Therefore, we add the transition transition: 200ms color ease-in above
+*/
+.sidebarOption:hover {
+  color: white;
+}
