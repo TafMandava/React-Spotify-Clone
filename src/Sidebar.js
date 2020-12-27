@@ -12,13 +12,14 @@ import { useDataLayerValue } from './DataLayer';
 import './Sidebar.css';
 
 function Sidebar({ spotify }) {
-    const [{ afterglow_search, playlists }, dispatch] = useDataLayerValue();
+    const [{ house_music_playlist, afterglow_search, user_playlists }, dispatch] = useDataLayerValue();
 
     /*
         Sanity check
     */
-    console.log("Playlists >>> ", playlists);
+    console.log("User Playlists >>> ", user_playlists);
     console.log("Afterglow Search >>> ", afterglow_search);
+    console.log("House Music Playlist >>> ", house_music_playlist);
 
     return (
         <div className="sidebar">
@@ -40,18 +41,28 @@ function Sidebar({ spotify }) {
                 The object that is returned has a property called items
                 Check if there are items inside of it and map it to 
                 For each single playlist(item) go ahead and return 
+                NB: Make Spotify Playlists Public
+            */}
+            {user_playlists?.items?.map((user_playlist) => {
+                return <SidebarOption title={user_playlist.name} />
+            })}
             
-            {playlists?.items?.map((playlist) => {
-                return <SidebarOption title={playlist.name} />
+            {/*
+                Search tracks whose name, album or artist contains 'Afterglow' 
+            
+            {afterglow_search?.tracks?.items?.map((search_result) => {
+                return <SidebarOption title={search_result.album.name} />
             })}
             */}
 
             {/*
-                Search tracks whose name, album or artist contains 'Afterglow' 
-            */}
-            {afterglow_search?.tracks?.items?.map((search_result) => {
-                return <SidebarOption title={search_result.album.name} />
+                Search playlists whose name or description contains 'House Music' 
+            
+            {house_music_playlist?.items?.map((house_music_song) => {
+                return <SidebarOption title={house_music_song.name} />
             })}
+            */}
+
         </div>
     );
 }

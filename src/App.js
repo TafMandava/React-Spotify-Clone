@@ -98,20 +98,31 @@ function App() {
       });
       
       /*
+          Get a user's playlists
           A call to the API which gives us  playlist
           This returns a promise (playlist for the user)
           Dispatch the playlists to the data layer
           Do not forget to go and listen to the action in the Requcer
       */
-     spotify.getUserPlaylists().then((playlists) => {
-      dispatch({
-          type: 'SET_PLAYLISTS',
-          playlists: playlists
-      });
-     });
+      spotify.getUserPlaylists().then((user_playlists) => {
+        dispatch({
+            type: 'SET_USER_PLAYLISTS',
+            user_playlists: user_playlists
+        });
+       });   
 
       /* 
-          search tracks whose name, album or artist contains 'Afterglow' 
+          Search playlists whose name or description contains 'House Music'
+      */
+      spotify.searchPlaylists('House Music').then((house_music_playlist) => {
+        dispatch({
+            type: 'SET_HOUSE_MUSIC_PLAYLIST',
+            house_music_playlist: house_music_playlist
+        });
+       });
+
+      /* 
+          Search tracks whose name, album or artist contains 'Afterglow' 
       */
      console.log('Search tracks whose name, album or artist contains Afterglow');
       spotify.searchTracks('Afterglow').then((afterglow_search) => {

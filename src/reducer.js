@@ -5,7 +5,6 @@ import { AccessTimeOutlined } from "@material-ui/icons";
 */
 export const initialState = {
     user: null,
-    playlists: [],
     playing: false,
     item: null,
     /*  If you do not want to constantly login the app
@@ -13,7 +12,9 @@ export const initialState = {
         However, this should be removed when the application is production ready
     */
     token: null,
-    afterglow_search: []
+    afterglow_search: [],
+    house_music_playlist: [],
+    user_playlists: []
 }
 
 /*
@@ -61,16 +62,21 @@ const reducer = (state, action) => {
                 ...state,
                 token: action.token
             };
-        case 'SET_PLAYLISTS':
+        case 'SET_USER_PLAYLISTS':
             return {
                 ...state,
-                playlists: action.playlists
+                user_playlists: action.user_playlists
             };
         case 'SET_AFTERGLOW_SEARCH':
             return {
                 ...state,
                 afterglow_search: action.afterglow_search
             };
+        case 'SET_HOUSE_MUSIC_PLAYLIST':
+            return {
+                ...state,
+                house_music_playlist: action.house_music_playlist
+            };           
         default:
             return state;
     }
