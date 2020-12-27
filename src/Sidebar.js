@@ -8,9 +8,17 @@ import HomeIcon from '@material-ui/icons/Home';
 import SearchIcon from '@material-ui/icons/Search';
 import LibraryMusicIcon from '@material-ui/icons/LibraryMusic';
 import SidebarOption from './SidebarOption';
+import { useDataLayerValue } from './DataLayer';
 import './Sidebar.css';
 
 function Sidebar() {
+    const [{ playlists }, dispatch] = useDataLayerValue();
+
+    /*
+        Sanity check
+    */
+    console.log("Playlists >>> ", playlists);
+
     return (
         <div className="sidebar">
             {/*
@@ -24,9 +32,17 @@ function Sidebar() {
             <br />
             <strong className="sidebar__title">PLAYLISTS</strong>
             <hr />
-            <SidebarOption title="Hip Hop" />
-            <SidebarOption title="Rock" />
-            <SidebarOption title="RnB" />
+            
+            {/*
+                Using JSX
+                Using optional training to see if the playlists are empty for wahtever reason
+                The object that is returned has a property called items
+                Check if there are items inside of it and map it to 
+                For each single playlist(item) go ahead and return 
+            */}
+            {playlists?.items?.map((playlist) => (
+                <SidebarOption title={playlist.name} />
+            ))}
         </div>
     );
 }

@@ -35,7 +35,7 @@ function App() {
            dataLayer.user;
       To test this login with spotify
   */
- const [{ user, token }, dispatch] = useDataLayerValue();
+ const [{ user, token}, dispatch] = useDataLayerValue();
 
   /*
       Run code based on a given condition
@@ -96,12 +96,25 @@ function App() {
           user: user
         });
       });
+      
+      /*
+          A call to the API which gives us  playlist
+          This returns a promise (playlist for the user)
+          Dispatch the playlists to the data layer
+          Do not forget to go and listen to the action in the Requcer
+      */
+      spotify.getUserPlaylists().then((playlists) => {
+        dispatch({
+          type: 'SET_PLAYLISTS',
+          playlists: playlists
+        });
+      });
 
      }
 
      //console.log("Token >>> ", token);
 
-  }, [token]);
+  }, []);
 
   /*
       Sanity check

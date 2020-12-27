@@ -1,9 +1,11 @@
+import { AccessTimeOutlined } from "@material-ui/icons";
+
 /*
     Responsible for making the App work the way we saw it working
 */
 export const initialState = {
     user: null,
-    playlist: [],
+    playlists: [],
     playing: false,
     item: null,
     /*  If you do not want to constantly login the app
@@ -52,11 +54,16 @@ const reducer = (state, action) => {
                     Update the user slice with whatever the action.user was
                 */
                 user: action.user
-            }
+            };
         case 'SET_TOKEN':
             return {
                 ...state,
                 token: action.token
+            };
+        case 'SET_PLAYLISTS':
+            return {
+                ...state,
+                playlists: action.playlists
             };
         default:
             return state;
