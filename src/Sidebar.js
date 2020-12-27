@@ -39,7 +39,7 @@ function Sidebar({ spotify }) {
                 The object that is returned has a property called items
                 Check if there are items inside of it and map it to 
                 For each single playlist(item) go ahead and return 
-                NB: Make Spotify Playlists Public
+                NB: Make Spotify Playlists Public 
             */}
             {user_playlists?.items?.map((user_playlist) => {
                 return <SidebarOption title={user_playlist.name} />
