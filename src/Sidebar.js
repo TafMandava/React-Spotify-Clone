@@ -42,7 +42,10 @@ function Sidebar({ spotify }) {
                 NB: Make Spotify Playlists Public 
             */}
             {playlists?.items?.map((playlist) => {
-                return <SidebarOption title={playlist.name} />
+                /*
+                    When creating a list in the UI from an array with JSX, you should add a key prop to each child and to any of its’ children.
+                */
+                return <SidebarOption key={playlist.id} title={playlist.name} />
             })}
 
         </div>
