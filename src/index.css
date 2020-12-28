@@ -1,3 +1,10 @@
+/*
+    Hide the scroll bar but keep it's functionality
+*/
+body::-webkit-scrollbar {
+  display: none;
+}
+
 * {
   margin: 0;
 }

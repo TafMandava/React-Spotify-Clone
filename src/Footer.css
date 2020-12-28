@@ -1,10 +1,102 @@
 .footer {
   /* We want the footer to be fixed at the bottom */
   position: fixed;
+  /* Use flex box to equally space the footer containers */
+  display: flex;
+  /* Have each of the elements or specifically the footer containers (footer__left, footer__center and footer__right ) evenly spaced between themselves */
+  justify-content: space-between;
   /* Stick to the bottom of the page */
   bottom: 0;
   height: 65px;
-  width: 100%;
+  /* Change from 100% to 98% so that it fits all the content and  doesn't cut off some of the content */
+  width: 98%;
   background-color: #282828;
   padding: 20px;
+}
+
+.footer__left {
+  /* Takeup 30% of the space */
+  flex: 0.3;
+  /* Put the image and text in a row */
+  display: flex;
+  align-items: center;
+  color: white;
+  /* 
+      I want a maximum width of 300 pixels because some songs have long titles
+      We do not want it to go over the sides
+  */
+  width: 300px;
+}
+
+.footer__albumLogo {
+  height: 60px;
+  /* Margin right so that it is not touching the text */
+  margin-right: 20px;
+  /* Keep the aspect ratio */
+  object-fit: contain;
+}
+
+.footer__green {
+  /* On Mac Spotify shows a green color for the selected icons */
+  color: #1ed15e;
+}
+
+.footer__songInfo > h4 {
+  /* An vertical space between text */
+  margin-bottom: 5px;
+}
+
+.footer__songInfo > p {
+  font-size: 12px;
+}
+
+.footer__center {
+  /* Takeup 40% of the space */
+  flex: 0.4;
+  /* 
+      Padding of 0 pixels on top and bottom 
+      Padding of 100 pixels on left and right
+  */
+  padding: 0 100px;
+  /* The color of the text and everything inside of it should be white */
+  color: white;
+  /* Automatically stay in a horizontal line or row */
+  display: flex;
+  /* Align items to the center */
+  align-items: center;
+  /* Justify play buttons between them */
+  justify-content: space-between;
+  /* Restrict the spread between buttons */
+  max-width: 300px;
+}
+
+.footer__right {
+  /* Takeup 30% of the space */
+  flex: 0.3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+/* 
+    Target all icons with a hover 
+    Whenever you hover over it give it a transform and scale of 1.2 (Scale to a 120%)
+    It's important because it's Material UI so it's overriding
+    Give it a 200 millisecond delay
+    So if you hover over it (the play-pause icon) you should see it (the play-pause icon) hover up
+*/
+.footer__icon:hover,
+.footer__green:hover {
+  transition: transform 0.2s ease-in-out;
+  transform: scale(1.2) !important;
+}
+
+/*
+    The slider is the only thing that's off color
+    Target the slider so that the volume control on the write blends in
+    Go to the footer__right. If there is any Material UI slider, override the color to green
+*/
+.footer__right * .MuiSlider-root {
+  color: green;
 }
