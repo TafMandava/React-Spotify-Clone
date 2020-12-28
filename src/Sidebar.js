@@ -12,12 +12,12 @@ import { useDataLayerValue } from './DataLayer';
 import './Sidebar.css';
 
 function Sidebar({ spotify }) {
-    const [{ user_playlists }, dispatch] = useDataLayerValue();
+    const [{ playlists }, dispatch] = useDataLayerValue();
 
     /*
         Sanity check
     */
-    console.log("User Playlists >>> ", user_playlists);
+    console.log("Playlists >>> ", playlists);
 
     return (
         <div className="sidebar">
@@ -41,8 +41,8 @@ function Sidebar({ spotify }) {
                 For each single playlist(item) go ahead and return 
                 NB: Make Spotify Playlists Public 
             */}
-            {user_playlists?.items?.map((user_playlist) => {
-                return <SidebarOption title={user_playlist.name} />
+            {playlists?.items?.map((playlist) => {
+                return <SidebarOption title={playlist.name} />
             })}
 
         </div>

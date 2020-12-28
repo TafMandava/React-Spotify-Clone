@@ -104,10 +104,10 @@ function App() {
           Dispatch the playlists to the data layer
           Do not forget to go and listen to the action in the Requcer
       */
-      spotify.getUserPlaylists().then((user_playlists) => {
+      spotify.getUserPlaylists().then((playlists) => {
         dispatch({
-            type: 'SET_USER_PLAYLISTS',
-            user_playlists: user_playlists
+            type: 'SET_PLAYLISTS',
+            playlists: playlists
         });
        });   
 
