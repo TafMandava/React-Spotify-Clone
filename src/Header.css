@@ -1,0 +1,39 @@
+.header {
+  display: flex;
+  /* As the screen grows we are going to space it between them */
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.header__left {
+  /* Take up half of the alocated space */
+  flex: 0.5;
+  min-width: 200px;
+  /* I want the input to be part of the search icon */
+  /* background-color: white; */
+  /* color: gray; */
+  /* We want a slightly rounded edge */
+  /* border-radius: 30px; */
+  display: flex;
+  align-items: center;
+}
+
+/*
+    Getting rid of border around input control
+*/
+.header__left > input {
+  /* border: none; */
+  /* width: 100%; */
+  border-radius: 30px;
+  width: 70%;
+}
+
+.header__right {
+  display: flex;
+  align-items: center;
+}
+
+.header__right > h4 {
+  /* Space between Avatar and Username */
+  margin-left: 10px;
+}

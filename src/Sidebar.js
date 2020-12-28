@@ -11,7 +11,7 @@ import SidebarOption from './SidebarOption';
 import { useDataLayerValue } from './DataLayer';
 import './Sidebar.css';
 
-function Sidebar({ spotify }) {
+function Sidebar() {
     const [{ playlists }, dispatch] = useDataLayerValue();
 
     /*
