@@ -35,7 +35,7 @@ function App() {
            dataLayer.user;
       To test this login with spotify
   */
- const [{ user, token}, dispatch] = useDataLayerValue();
+ const [{ discover_weekly, user, token }, dispatch] = useDataLayerValue();
 
   /*
       Run code based on a given condition
@@ -109,7 +109,17 @@ function App() {
             type: 'SET_PLAYLISTS',
             playlists: playlists
         });
-       });   
+       });  
+
+      /*
+          Get your Weekly Discover feed
+      */
+      spotify.getPlaylist('49yjA7WhgZJIRnqfHjymgp').then((response) => {
+        dispatch({
+          type: 'SET_DISCOVER_WEEKLY',
+          discover_weekly: response
+        });
+      });
 
       /* 
           Search playlists whose name or description contains 'House Music'
@@ -124,7 +134,6 @@ function App() {
       /* 
           Search tracks whose name, album or artist contains 'Afterglow' 
       */
-     console.log('Search tracks whose name, album or artist contains Afterglow');
       spotify.searchTracks('Afterglow').then((afterglow_search) => {
         dispatch({
             type: 'SET_AFTERGLOW_SEARCH',
@@ -152,6 +161,8 @@ function App() {
       Printing out the user from the data layer
   */
   console.log("User >>> ", user);
+
+  console.log("Discover Weekly >>> ", discover_weekly);
 
   return ( 
     /*

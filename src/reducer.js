@@ -13,6 +13,7 @@ export const initialState = {
         However, this should be removed when the application is production ready
     */
     token: null,
+    discover_weekly: null,
     afterglow_search: [],
     house_music_playlist: []
 }
@@ -66,6 +67,11 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 playlists: action.playlists
+            };
+        case 'SET_DISCOVER_WEEKLY':
+            return {
+                ...state,
+                discover_weekly: action.discover_weekly
             };
         case 'SET_AFTERGLOW_SEARCH':
             return {

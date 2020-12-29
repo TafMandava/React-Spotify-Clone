@@ -14,4 +14,76 @@
       Go from transparent all the way to opaque black - linear-gradient(transparent, rgba(0, 0, 0, 1),);
   */
   background: linear-gradient(rgb(91, 87, 115), rgba(0, 0, 0, 1));
+  overflow-y: overlay;
+}
+
+.body::-webkit-scrollbar {
+  display: none;
+}
+
+.body__info {
+  display: flex;
+  /* Push the text to the bottom or end */
+  align-items: flex-end;
+  /* Padding of ten pixels around it */
+  padding: 10px;
+}
+
+.body__info > img {
+  height: 20vw;
+  margin: 0 20px;
+  /*
+      Black box shadow with a half opacity
+  */
+  box-shadow: 0 4px 60px rgba(0, 0, 0);
+}
+
+.body__infoText {
+  /* Use the majority of the space */
+  flex: 1;
+}
+
+.body__infoText > h2 {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.body__infoText > p {
+  font-size: 14px;
+}
+
+/* 
+    Margin 20px up and down
+    Margin -30px left and right
+*/
+.body__songs {
+  margin: 20px -30px;
+}
+
+.body__icons {
+  display: flex;
+  align-items: center;
+}
+
+/*
+    Increase the space between icons (separation of icons)
+*/
+.body__icons > .MuiSvgIcon-root {
+  margin-right: 20px;
+}
+
+.body__shuffle {
+  font-size: 80px !important;
+  margin-left: 50px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/*
+    When we hover the play button it should slightly grow
+*/
+
+.body__shuffle:hover {
+  transition: 100ms transform ease-in;
+  transform: scale(1.08);
 }

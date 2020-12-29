@@ -22,9 +22,9 @@
     Getting rid of border around input control
 */
 .header__left > input {
-  /* border: none; */
+  border: none;
   /* width: 100%; */
-  border-radius: 30px;
+  border-radius: 10px;
   width: 75%;
 }
 
